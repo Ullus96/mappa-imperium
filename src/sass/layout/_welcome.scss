@@ -1,0 +1,31 @@
+.welcome {
+	background-color: $color-secondary;
+
+	// &__container {
+	// 	padding: 10rem;
+	// }
+
+	&__image-container {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 4rem;
+	}
+
+	&__image {
+		display: block;
+		width: 100%;
+		border-radius: 3rem;
+		mix-blend-mode: luminosity;
+	}
+
+	&__title {
+		color: $color-accent-3;
+	}
+
+	&__text-container {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 4rem;
+		font-size: 2rem;
+	}
+}

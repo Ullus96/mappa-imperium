@@ -1,0 +1,27 @@
+table {
+	min-width: 50%;
+	margin-bottom: 1rem;
+	border-collapse: collapse;
+
+	caption {
+		text-align: left;
+		font-family: $font-body;
+		font-weight: 700;
+		font-size: 2rem;
+		margin-bottom: 0.5rem;
+		color: $color-accent;
+	}
+
+	tr th {
+		text-align: left;
+		background-color: $color-accent;
+		color: $color-primary;
+		border: 1px solid $color-accent;
+		padding: 0.5rem 0.5rem;
+	}
+
+	tr td {
+		padding: 0.25rem 0.5rem;
+		border: 1px solid $color-accent;
+	}
+}

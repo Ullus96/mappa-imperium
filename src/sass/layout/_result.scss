@@ -1,0 +1,75 @@
+.result {
+	&__content {
+		display: grid;
+		gap: 4rem;
+		padding: 0 10rem 10rem;
+
+		&:nth-child(odd) {
+			grid-template-columns: 40% 60%;
+
+			& .result__img {
+				order: 0;
+			}
+		}
+
+		&:nth-child(even) {
+			grid-template-columns: 60% 40%;
+
+			& .result__img {
+				order: 1;
+			}
+		}
+	}
+
+	&__img {
+		& img {
+			width: 100%;
+			display: block;
+			border-radius: 1.5rem;
+		}
+	}
+
+	&__dices {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+	}
+
+	&__dice {
+		position: relative;
+
+		// & iconify-icon {
+		// 	position: relative;
+		// 	z-index: 2;
+		// }
+
+		// &::after {
+		// 	content: '';
+		// 	background-color: rgba(255, 255, 255, 0.8);
+		// 	position: absolute;
+		// 	left: 10%;
+		// 	right: 10%;
+		// 	top: 10%;
+		// 	bottom: 10%;
+		// 	z-index: 1;
+		// }
+	}
+
+	&__dice-total {
+		text-align: center;
+		font-size: 1.8rem;
+		margin-bottom: 3rem;
+	}
+
+	&__title {
+		font-size: 4rem;
+		font-family: $font-header;
+		text-align: center;
+	}
+
+	&__subtitle {
+		text-align: center;
+		opacity: 0.8;
+		margin-bottom: 3rem;
+	}
+}

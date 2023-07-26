@@ -1,0 +1,86 @@
+.action {
+	&__btns {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin-top: 4rem;
+		gap: 1rem;
+		font-weight: 700;
+		color: $color-accent;
+	}
+
+	&__btns-main {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		flex-direction: row;
+		gap: 1rem;
+	}
+
+	&__btn {
+		position: relative;
+		display: block;
+		cursor: pointer;
+		overflow: hidden;
+		border: 2px solid $color-accent;
+		padding: 1.2rem 1.5rem;
+		border-radius: 0.8rem;
+		transition: all 1s ease;
+
+		& span {
+			position: relative;
+			z-index: 2;
+
+			& .fa-angle-down {
+				vertical-align: middle;
+			}
+		}
+
+		&.animated {
+			&:after {
+				content: '';
+				position: absolute;
+				height: 150%;
+				left: 0%;
+				top: -30%;
+				width: 100%;
+				transform: rotateY(90deg) rotateX(-25deg);
+				transform-origin: center;
+				transition: all 0.3s ease-out;
+			}
+
+			&:hover {
+				color: $color-primary;
+			}
+
+			&:hover:after {
+				z-index: 1;
+				background: $color-accent;
+				transform: rotateY(0deg) rotateX(-25deg);
+			}
+		}
+
+		&.highlight {
+			background: $color-accent;
+			color: $color-primary;
+
+			&:hover {
+				background: $color-accent-3;
+				border: 2px solid $color-accent-3;
+			}
+		}
+	}
+
+	&__btns-sub {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 1rem;
+
+		& .action__btn {
+			padding: 0.6rem 1.2rem;
+			font-size: 1.4rem;
+		}
+	}
+}

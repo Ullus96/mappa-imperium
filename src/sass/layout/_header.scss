@@ -1,0 +1,30 @@
+.header {
+	background-color: $color-primary;
+
+	&__container {
+		padding: 0rem 10rem 0;
+	}
+
+	&__content {
+		position: relative;
+		padding: 0 10rem 10rem;
+	}
+
+	&__title {
+		position: relative;
+		padding-top: 20rem;
+		z-index: 3;
+	}
+
+	&__background {
+		position: absolute;
+		left: 50%;
+		bottom: 6%;
+		transform: translateX(-50%);
+		z-index: 1;
+	}
+}
+
+// * {
+// 	border: 1px black dashed;
+// }

@@ -1,0 +1,10 @@
+.yt {
+	background-color: $color-secondary;
+	&__title {
+		color: $color-accent-4;
+	}
+
+	&__video {
+		display: flex;
+	}
+}

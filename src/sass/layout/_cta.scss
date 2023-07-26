@@ -1,0 +1,29 @@
+.cta {
+	background-color: $color-accent-4;
+	color: $color-text-light;
+
+	&__img {
+		width: 8rem;
+	}
+
+	&__container {
+		max-width: 50%;
+		text-align: center;
+	}
+
+	&__title {
+		padding: 2rem 0;
+		color: $color-text-light;
+	}
+
+	&__text {
+		text-align: center;
+		margin-bottom: 2rem;
+	}
+
+	&__btn {
+		background-color: $color-text;
+		color: $color-primary;
+		font-size: 1.6rem;
+	}
+}
