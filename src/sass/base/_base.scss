@@ -31,6 +31,21 @@ a:visited {
 	color: inherit;
 }
 
+.link {
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 2px;
+		opacity: 0.6;
+		background-color: $color-accent;
+	}
+}
+
 input,
 textarea,
 .btn {

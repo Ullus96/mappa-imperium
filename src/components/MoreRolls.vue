@@ -1,58 +1,33 @@
 <template>
-	<div class="action__btns-sub">
-		<div class="action__btn animated">
-			<span>1d6</span>
-		</div>
-		<div class="action__btn animated">
-			<span>2d6</span>
-		</div>
-		<div class="action__btn animated">
-			<span>3d6</span>
-		</div>
-		<div class="action__btn animated">
-			<span>Landmass</span>
-		</div>
-		<div class="action__btn animated">
-			<span>8 biomes</span>
-		</div>
-		<div class="action__btn animated">
-			<span>Race</span>
-		</div>
-		<div class="action__btn animated">
-			<span>Generate Faction</span>
-		</div>
-		<div class="action__btn animated">
-			<span>Neighbour</span>
-		</div>
-		<div class="action__btn animated">
-			<span>Neighbour Development</span>
-		</div>
-		<div class="action__btn animated">
-			<span>Settlement</span>
-		</div>
-		<div class="action__btn animated">
-			<span>Hero</span>
-		</div>
-		<div class="action__btn animated">
-			<span>Empire Specialization</span>
-		</div>
-		<div class="action__btn animated">
-			<span>Era IV</span>
-		</div>
-		<div class="action__btn animated">
-			<span>Era V</span>
-		</div>
-		<div class="action__btn animated">
-			<span>Era VI</span>
-		</div>
-		<div class="action__btn animated">
-			<span>Omen</span>
-		</div>
+	<div
+		class="action__btns-sub"
+		:class="[$store.state.isMoreRollsVisible ? '' : 'hide']"
+	>
+		<the-button>1d6</the-button>
+		<the-button>2d6</the-button>
+		<the-button>3d6</the-button>
+		<the-button>1d100</the-button>
+		<the-button>Landmass</the-button>
+		<the-button>8 biomes</the-button>
+		<the-button>Race</the-button>
+		<the-button>Generate Faction</the-button>
+		<the-button>Neighbour</the-button>
+		<the-button>Neighbour Development</the-button>
+		<the-button>Settlement</the-button>
+		<the-button>Hero</the-button>
+		<the-button>Empire Specialization</the-button>
+		<the-button>Era IV</the-button>
+		<the-button>Era V</the-button>
+		<the-button>Era VI</the-button>
+		<the-button>Omen</the-button>
 	</div>
 </template>
 
 <script>
-export default {};
+import TheButton from '@/components/TheButton.vue';
+export default {
+	components: { TheButton },
+};
 </script>
 
 <style></style>
