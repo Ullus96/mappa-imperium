@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *,
 *::before,
 *::after {
@@ -184,6 +185,16 @@ h6 {
   margin: 0 auto;
 }
 
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Устанавливаем минимальную высоту контейнера на всю высоту экрана */
+}
+
+.main-content {
+  flex-grow: 1; /* Расширяем основной контент, чтобы он занимал доступное пространство */
+}
+
 .transition {
   animation: smoothTransition 3s ease;
 }
@@ -208,11 +219,13 @@ h6 {
 }
 .nav {
   padding: 6rem 0 0 0;
+  width: 100%;
   position: relative;
   z-index: 2;
 }
 .nav__list {
   display: flex;
+  gap: 1rem;
   flex-direction: row;
   justify-content: space-between;
 }
@@ -226,6 +239,8 @@ h6 {
 }
 .header__container {
   padding: 0rem 10rem 0;
+  width: 100%;
+  display: flex;
 }
 .header__content {
   position: relative;

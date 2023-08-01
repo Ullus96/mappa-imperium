@@ -1,7 +1,11 @@
 <template>
-	<nav-block></nav-block>
-	<router-view></router-view>
-	<footer-block></footer-block>
+	<div class="app-container">
+		<nav-block></nav-block>
+		<div class="main-content">
+			<router-view></router-view>
+		</div>
+		<footer-block></footer-block>
+	</div>
 </template>
 
 <script>
@@ -19,6 +23,21 @@ export default {
 						localStorage.getItem('currentStage'))
 				: (store.state.counters.currentStage = 0);
 
+			localStorage.getItem('playerCurrent')
+				? (store.state.counters.playerCurrent =
+						localStorage.getItem('playerCurrent'))
+				: (store.state.counters.playerCurrent = 1);
+
+			localStorage.getItem('currentStage')
+				? (store.state.counters.currentStage =
+						localStorage.getItem('currentStage'))
+				: (store.state.counters.currentStage = 0);
+
+			localStorage.getItem('currentStage')
+				? (store.state.counters.currentStage =
+						localStorage.getItem('currentStage'))
+				: (store.state.counters.currentStage = 0);
+			// gameSettings
 			localStorage.getItem('playersTotal')
 				? (store.state.gameSettings.playersTotal =
 						localStorage.getItem('playersTotal'))

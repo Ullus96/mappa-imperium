@@ -3,11 +3,11 @@
 
 	<div class="era__content container" v-if="isPageLoaded">
 		<h1 class="era__title">Welcome to Mappa Imperium</h1>
-		<h1 class="era__subtitle">
+		<!-- <h1 class="era__subtitle">
 			$store.state.counters.currentStage =
 			{{ $store.state.counters.currentStage }} <br />isStageExists.value =
 			{{ isStageExists }}
-		</h1>
+		</h1> -->
 		<div class="era__choice">
 			<the-button :disabled="!isStageExists" @click="continueGame"
 				>Continue</the-button
@@ -42,7 +42,7 @@
 		</div>
 	</div>
 
-	<div class="result__outer-container" v-if="true">
+	<div class="result__outer-container" v-if="!isPageLoaded">
 		<the-result></the-result>
 		<the-result></the-result>
 	</div>
@@ -107,7 +107,9 @@ export default {
 		let isPageLoaded = ref(true);
 
 		function startNewGame() {
-			store.commit('modifyCounter', { name: 'currentStage', value: 0 });
+			store.state.counters.currentStage = 0;
+			store.state.counters.playerCurrent = 1;
+			store.state.counters.turnCurrent = 1;
 			isPageLoaded.value = false;
 		}
 
