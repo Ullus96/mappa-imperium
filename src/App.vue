@@ -14,6 +14,11 @@ export default {
 	setup() {
 		const store = useStore();
 		onMounted(() => {
+			localStorage.getItem('currentStage')
+				? (store.state.counters.currentStage =
+						localStorage.getItem('currentStage'))
+				: (store.state.counters.currentStage = 0);
+
 			localStorage.getItem('playersTotal')
 				? (store.state.gameSettings.playersTotal =
 						localStorage.getItem('playersTotal'))

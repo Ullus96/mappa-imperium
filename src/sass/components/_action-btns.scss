@@ -6,7 +6,7 @@
 		justify-content: center;
 		gap: 1rem;
 		font-weight: 700;
-		color: $color-accent;
+		user-select: none;
 	}
 
 	&__btns-main {
@@ -26,6 +26,7 @@
 		padding: 1.2rem 1.5rem;
 		border-radius: 0.8rem;
 		transition: all 1s ease;
+		color: $color-accent;
 
 		& span {
 			position: relative;
@@ -34,6 +35,10 @@
 			& .fa-angle-down {
 				vertical-align: middle;
 			}
+		}
+
+		&:disabled {
+			border: 2px solid rgba($color-accent, 0.6);
 		}
 
 		&.animated {
@@ -69,6 +74,12 @@
 				border: 2px solid $color-accent-3;
 			}
 		}
+
+		// &.disabled {
+		// 	cursor: not-allowed;
+		// 	color: rgba($color-text, 0.5);
+		// 	border: 2px solid rgba($color-text, 0.4);
+		// }
 	}
 
 	&__btns-sub {

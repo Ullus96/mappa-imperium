@@ -1,10 +1,14 @@
 <template>
-	<div
+	<button
 		class="action__btn"
-		:class="[type === 'animated' ? 'animated' : 'highlight']"
+		:class="[
+			type === 'animated' ? 'animated' : '',
+			type === 'highlight' ? 'highlight' : '',
+		]"
+		:disabled="$store.state.isInTransition"
 	>
 		<span><slot></slot></span>
-	</div>
+	</button>
 </template>
 
 <script>

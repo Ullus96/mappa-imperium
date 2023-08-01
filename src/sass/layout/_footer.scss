@@ -28,6 +28,62 @@
 	&__links {
 		display: flex;
 		flex-direction: column;
+		flex-basis: 0;
 		gap: 0.8rem;
+		user-select: none;
+
+		& a {
+			position: relative;
+			display: inline;
+
+			&::after {
+				content: '';
+				background-color: $color-text-light;
+				position: absolute;
+				height: 1px;
+				width: 100%;
+				bottom: -1px;
+				left: 0;
+				transform: rotateY(90deg);
+				transition: 0.2s transform ease-in-out;
+			}
+
+			&:hover::after {
+				transform: rotateY(20deg);
+			}
+		}
+	}
+
+	&__tooltip {
+		position: relative;
+		cursor: pointer;
+
+		&:hover div {
+			opacity: 1;
+			visibility: visible;
+			transform: rotateX(0deg);
+		}
+
+		& div {
+			position: absolute;
+			left: -0.6rem;
+			top: -120%;
+			background-color: $color-primary;
+			color: $color-text;
+			padding: 0.3rem 0.9rem;
+			border-radius: 6px;
+			cursor: text;
+			user-select: text;
+
+			opacity: 0;
+			visibility: hidden;
+			transform: rotateX(90deg);
+			transform-origin: bottom;
+			transition: 0.2s ease-in all;
+
+			& i {
+				cursor: pointer;
+			}
+		}
 	}
 }

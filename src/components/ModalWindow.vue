@@ -118,9 +118,17 @@ export default {
 		}
 
 		function startGame() {
-			store.state.counters.currentStage = 1;
-			localStorage.setItem('currentStage', 1);
+			store.commit('toggleTransition');
 			store.commit('toggleModal');
+
+			setTimeout(() => {
+				store.state.counters.currentStage = 1;
+				localStorage.setItem('currentStage', 1);
+			}, 1500);
+
+			setTimeout(() => {
+				store.commit('toggleTransition');
+			}, 3000);
 		}
 		return { changeGameOption, startGame };
 	},

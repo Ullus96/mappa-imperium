@@ -1,7 +1,7 @@
 <template>
 	<div class="result__content container">
 		<div class="result__img">
-			<img src="http://placehold.it/500x500" alt="#" />
+			<img :src="require('../assets/results/' + result[1][3].img)" alt="#" />
 		</div>
 		<div class="result__info">
 			<div class="result__dices">

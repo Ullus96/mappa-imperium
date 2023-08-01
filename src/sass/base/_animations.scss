@@ -1,0 +1,25 @@
+.transition {
+	animation: smoothTransition 3s ease;
+}
+
+@keyframes smoothTransition {
+	0% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	40% {
+		opacity: 0;
+		transform: translateY(-4rem);
+	}
+
+	60% {
+		opacity: 0;
+		transform: translateY(-4rem);
+	}
+
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
