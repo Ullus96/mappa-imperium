@@ -28,15 +28,15 @@ export default {
 						localStorage.getItem('playerCurrent'))
 				: (store.state.counters.playerCurrent = 1);
 
-			localStorage.getItem('currentStage')
-				? (store.state.counters.currentStage =
-						localStorage.getItem('currentStage'))
-				: (store.state.counters.currentStage = 0);
+			localStorage.getItem('turnCurrent')
+				? (store.state.counters.turnCurrent =
+						localStorage.getItem('turnCurrent'))
+				: (store.state.counters.turnCurrent = 1);
 
-			localStorage.getItem('currentStage')
-				? (store.state.counters.currentStage =
-						localStorage.getItem('currentStage'))
-				: (store.state.counters.currentStage = 0);
+			localStorage.getItem('turnsTotal')
+				? (store.state.counters.turnsTotal = localStorage.getItem('turnsTotal'))
+				: (store.state.counters.turnsTotal = 1);
+
 			// gameSettings
 			localStorage.getItem('playersTotal')
 				? (store.state.gameSettings.playersTotal =

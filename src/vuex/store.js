@@ -8,7 +8,7 @@ export default createStore({
 			isInTransition: false,
 			counters: {
 				turnCurrent: 1,
-				turnsTotal: 2,
+				turnsTotal: 1,
 				playerCurrent: 1,
 				currentStage: 0,
 			},
@@ -38,11 +38,9 @@ export default createStore({
 
 			if (payload.operation == 'plus') {
 				state.counters[payload.name]++;
-				localStorage.setItem(payload.name, state.counters[payload.name]);
 			}
 			if (payload.operation == 'minus') {
 				state.counters[payload.name]--;
-				localStorage.setItem(payload.name, state.counters[payload.name]);
 			}
 
 			if (state.counters.playerCurrent > state.gameSettings.playersTotal) {
@@ -53,6 +51,9 @@ export default createStore({
 				state.counters.playerCurrent = state.gameSettings.playersTotal;
 				state.counters.turnCurrent--;
 			}
+
+			localStorage.setItem('turnCurrent', state.counters.turnCurrent);
+			localStorage.setItem(payload.name, state.counters[payload.name]);
 		},
 		setTurnsTotal(state) {
 			console.log(state);

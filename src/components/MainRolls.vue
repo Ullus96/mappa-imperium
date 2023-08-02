@@ -31,6 +31,18 @@
 	}}<br />
 	store.state.counters.turnCurrent =
 	{{ $store.state.counters.turnCurrent }}
+	<br />
+	gameSettings:<br />
+	store.state.gameSettings.playersTotal =
+	{{ $store.state.gameSettings.playersTotal }}<br />
+	store.state.gameSettings.era4 =
+	{{ $store.state.gameSettings.era4 }}
+	<br />
+	store.state.gameSettings.era5 =
+	{{ $store.state.gameSettings.era5 }}
+	<br />
+	store.state.gameSettings.era6 =
+	{{ $store.state.gameSettings.era6 }}
 </template>
 
 <script>
@@ -61,6 +73,8 @@ export default {
 
 			store.commit('modifyCounter', { name, operation });
 
+			localStorage.setItem('turnCurrent', store.state.counters.turnCurrent);
+
 			if (store.state.counters.turnCurrent > store.state.counters.turnsTotal) {
 				store.state.counters.turnCurrent = 1;
 				store.commit('toggleTransition');
@@ -78,7 +92,6 @@ export default {
 			}
 
 			if (store.state.counters.turnCurrent === 0) {
-				store.state.counters.turnCurrent = store.state.counters.turnsTotal;
 				store.commit('toggleTransition');
 
 				setTimeout(() => {
@@ -87,6 +100,11 @@ export default {
 						operation: 'minus',
 					});
 				}, 1500);
+
+				setTimeout(() => {
+					store.state.counters.turnCurrent = store.state.counters.turnsTotal;
+					localStorage.setItem('turnCurrent', store.state.counters.turnCurrent);
+				}, 1501);
 
 				setTimeout(() => {
 					store.commit('toggleTransition');

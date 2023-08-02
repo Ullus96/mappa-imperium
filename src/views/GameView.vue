@@ -19,9 +19,14 @@
 	<div class="era__content container" v-else>
 		<era-description></era-description>
 
-		<turn-counter v-if="$store.state.counters.currentStage > 0"></turn-counter>
+		<turn-counter
+			v-if="
+				$store.state.counters.currentStage > 0 &&
+				$store.state.counters.currentStage != 19
+			"
+		></turn-counter>
 
-		<div class="action__btns">
+		<div class="action__btns" v-if="$store.state.counters.currentStage != 19">
 			<template v-if="$store.state.counters.currentStage > 0">
 				<main-rolls></main-rolls>
 				<more-rolls></more-rolls>
