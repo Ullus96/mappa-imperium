@@ -43,10 +43,12 @@
 			<div class="footer__extra-info">
 				<p>
 					All images were generated with
-					<a href="https://civitai.com/models/8124/a-zovya-rpg-artist-tools"
+					<a
+						href="https://civitai.com/models/8124/a-zovya-rpg-artist-tools"
+						target="_blank"
 						>A-Zovya RPG Artist Tools v3 model</a
 					>
-					by <a href="https://civitai.com/user/Zovya">Zovya</a>
+					by <a href="https://civitai.com/user/Zovya" target="_blank">Zovya</a>
 				</p>
 			</div>
 		</div>

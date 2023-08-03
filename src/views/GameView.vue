@@ -165,8 +165,8 @@ export default {
 		}
 
 		function d6() {
-			// return Math.floor(Math.random() * 6 + 1);
-			return 3;
+			return Math.floor(Math.random() * 6 + 1);
+			// return 3;
 		}
 
 		function turnButtonClicked() {

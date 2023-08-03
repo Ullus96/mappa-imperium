@@ -36,8 +36,17 @@ export default {
 
 				// Check if stage is Biomes (2), Age of Discovery (10),
 				// Age of Empires (13), Age of Collapse (15)
+				// or if Colonization (Hero) (11) and Settlers (9)
 				if (store.state.counters.currentStage == 2) {
 					store.state.counters.turnsTotal = 8;
+				}
+
+				if (store.state.counters.currentStage == 9) {
+					store.state.counters.turnsTotal = 2;
+				}
+
+				if (store.state.counters.currentStage == 11) {
+					store.state.counters.turnsTotal = 3;
 				}
 
 				if (store.state.counters.currentStage == 10) {
