@@ -3,6 +3,7 @@
 		display: grid;
 		gap: 4rem;
 		padding: 0 10rem 10rem;
+		animation: fadeIn 0.5s ease-out;
 
 		&:nth-child(odd) {
 			grid-template-columns: 40% 60%;
@@ -22,6 +23,7 @@
 	}
 
 	&__img {
+		align-self: center;
 		& img {
 			width: 100%;
 			display: block;
@@ -59,5 +61,21 @@
 
 	&__description p {
 		margin-bottom: 1rem;
+	}
+
+	&__rolling-action {
+		margin-top: -4rem;
+		margin-bottom: 6rem;
+	}
+
+	&__dice-animation {
+		animation: diceRotation 0.5s infinite alternate;
+		transform-origin: center;
+	}
+
+	&__extra-btns {
+		justify-content: center;
+		display: flex;
+		gap: 1rem;
 	}
 }

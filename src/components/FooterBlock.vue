@@ -40,6 +40,15 @@
 					</ul>
 				</div>
 			</div>
+			<div class="footer__extra-info">
+				<p>
+					All images were generated with
+					<a href="https://civitai.com/models/8124/a-zovya-rpg-artist-tools"
+						>A-Zovya RPG Artist Tools v3 model</a
+					>
+					by <a href="https://civitai.com/user/Zovya">Zovya</a>
+				</p>
+			</div>
 		</div>
 	</footer>
 </template>

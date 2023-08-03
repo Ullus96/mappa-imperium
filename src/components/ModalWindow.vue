@@ -124,6 +124,11 @@ export default {
 			setTimeout(() => {
 				store.state.counters.currentStage = 1;
 				localStorage.setItem('currentStage', 1);
+
+				store.state.counters.turnsTotal = 1;
+				store.state.counters.turnCurrent = 1;
+				localStorage.setItem('turnsTotal', store.state.counters.turnsTotal);
+				localStorage.setItem('turnCurrent', store.state.counters.turnCurrent);
 			}, 1500);
 
 			setTimeout(() => {

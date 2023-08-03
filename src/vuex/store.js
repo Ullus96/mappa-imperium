@@ -6,6 +6,7 @@ export default createStore({
 			isModalVisible: false,
 			isMoreRollsVisible: false,
 			isInTransition: false,
+			isRolling: false,
 			counters: {
 				turnCurrent: 1,
 				turnsTotal: 1,
@@ -29,6 +30,9 @@ export default createStore({
 		},
 		toggleTransition(state) {
 			state.isInTransition = !state.isInTransition;
+		},
+		toggleRolling(state) {
+			state.isRolling = !state.isRolling;
 		},
 		modifySetting(state, payload) {
 			if (!payload) return false;

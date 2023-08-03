@@ -28,7 +28,10 @@
 
 		<div class="action__btns" v-if="$store.state.counters.currentStage != 19">
 			<template v-if="$store.state.counters.currentStage > 0">
-				<main-rolls></main-rolls>
+				<main-rolls
+					@roll="roll"
+					@turnButtonClicked="turnButtonClicked"
+				></main-rolls>
 				<more-rolls></more-rolls>
 			</template>
 
@@ -47,9 +50,21 @@
 		</div>
 	</div>
 
+	<div class="result__rolling-action" v-if="$store.state.isRolling">
+		<div class="result__dices">
+			<dice-random-shifting
+				v-for="(dice, index) in 3"
+				:key="index"
+			></dice-random-shifting>
+		</div>
+	</div>
 	<div class="result__outer-container" v-if="!isPageLoaded">
-		<the-result></the-result>
-		<the-result></the-result>
+		<the-result
+			v-for="(item, index) in rolledResults"
+			:key="`${index}-${Date.now()}`"
+			:data="item"
+			@roll="roll"
+		></the-result>
 	</div>
 </template>
 
@@ -61,9 +76,10 @@ import MainRolls from '@/components/MainRolls.vue';
 import TheButton from '@/components/TheButton.vue';
 import TheResult from '@/components/TheResult.vue';
 import ModalWindow from '@/components/ModalWindow.vue';
+import DiceRandomShifting from '@/components/DiceRandomShifting.vue';
 import results from '@/js/results_en';
 import { useStore } from 'vuex';
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 export default {
 	components: {
 		EraDescription,
@@ -73,23 +89,11 @@ export default {
 		TheButton,
 		TheResult,
 		ModalWindow,
+		DiceRandomShifting,
 	},
 	setup() {
 		const store = useStore();
 		const result = results;
-		let currentStage = store.state.counters.currentStage;
-		console.log(result[currentStage].info);
-
-		function roll() {
-			if (store.state.currentStage === 7) {
-				console.log(store.state.currentStage);
-			}
-			const rollResult = d6();
-			console.log(result[0][rollResult]);
-		}
-		function d6() {
-			return Math.floor(Math.random() * 6 + 1);
-		}
 
 		function setGameDuration(era4, era5, era6) {
 			store.commit('toggleModal');
@@ -103,7 +107,6 @@ export default {
 		}
 
 		let isStageExists = ref(false);
-		console.log(isStageExists.value);
 
 		if (store.state.counters.currentStage > 0) {
 			isStageExists.value = true;
@@ -124,16 +127,64 @@ export default {
 			}
 		}
 
+		// Rolls and results
+		let rolledResults = reactive([]);
+
+		function roll(payload) {
+			console.log(rolledResults);
+			console.log(payload);
+			store.commit('toggleRolling');
+
+			if (payload.clearRolls) {
+				rolledResults.splice(0, rolledResults.length);
+			}
+
+			let rolls = [];
+			for (let i = 0; i < payload.amount; i++) {
+				rolls.push(d6());
+			}
+
+			let finalAmount = 0;
+			rolls.forEach((e) => {
+				finalAmount += e;
+			});
+
+			let packedResults = {
+				stage: payload.stage,
+				rolls,
+				finalAmount,
+			};
+
+			// final results
+			console.log(packedResults);
+
+			setTimeout(() => {
+				store.commit('toggleRolling');
+				rolledResults.push(packedResults);
+			}, 3000);
+		}
+
+		function d6() {
+			// return Math.floor(Math.random() * 6 + 1);
+			return 3;
+		}
+
+		function turnButtonClicked() {
+			console.log('turnButtonClicked on parent');
+			rolledResults.splice(0, rolledResults.length);
+		}
+
 		return {
 			d6,
 			roll,
 			setGameDuration,
-			currentStage,
 			result,
 			isStageExists,
 			isPageLoaded,
 			startNewGame,
 			continueGame,
+			rolledResults,
+			turnButtonClicked,
 		};
 	},
 };

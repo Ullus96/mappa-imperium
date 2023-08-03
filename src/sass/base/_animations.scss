@@ -23,3 +23,25 @@
 		opacity: 1;
 	}
 }
+
+@keyframes diceRotation {
+	0% {
+		transform: rotateZ(-8deg);
+	}
+	50% {
+		transform: rotateZ(8deg);
+	}
+	100% {
+		transform: rotateZ(-8deg);
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}

@@ -1,8 +1,13 @@
 <template>
 	<div class="action__btns-main">
 		<the-button
-			@click="clickedCounter('playerCurrent', 'minus')"
-			:disabled="isFirstTurn || $store.state.isInTransition"
+			@click="
+				clickedCounter('playerCurrent', 'minus');
+				turnButtonClicked();
+			"
+			:disabled="
+				isFirstTurn || $store.state.isInTransition || $store.state.isRolling
+			"
 			><i class="fa-solid fa-arrow-left"></i> Previous Turn</the-button
 		>
 		<the-button @click="$store.commit('changeMoreRollsVisibility')"
@@ -17,32 +22,53 @@
 		<the-button
 			:type="'highlight'"
 			@click="roll"
-			:disabled="isButtonDisabled || $store.state.isInTransition"
+			:disabled="
+				isButtonDisabled ||
+				$store.state.isInTransition ||
+				$store.state.isRolling
+			"
 			>Roll a Dice</the-button
 		>
-		<the-button @click="clickedCounter('playerCurrent', 'plus')"
+		<the-button
+			@click="
+				clickedCounter('playerCurrent', 'plus');
+				turnButtonClicked();
+			"
 			>Next Turn <i class="fa-solid fa-arrow-right"></i
 		></the-button>
 	</div>
-	isFirstTurn = {{ isFirstTurn }}<br />
-	store.state.counters.currentStage = {{ $store.state.counters.currentStage
-	}}<br />
-	store.state.counters.playerCurrent = {{ $store.state.counters.playerCurrent
-	}}<br />
-	store.state.counters.turnCurrent =
-	{{ $store.state.counters.turnCurrent }}
-	<br />
-	gameSettings:<br />
-	store.state.gameSettings.playersTotal =
-	{{ $store.state.gameSettings.playersTotal }}<br />
-	store.state.gameSettings.era4 =
-	{{ $store.state.gameSettings.era4 }}
-	<br />
-	store.state.gameSettings.era5 =
-	{{ $store.state.gameSettings.era5 }}
-	<br />
-	store.state.gameSettings.era6 =
-	{{ $store.state.gameSettings.era6 }}
+	<div class="debug__content" v-if="false">
+		<p>isFirstTurn = {{ isFirstTurn }}</p>
+		<p>
+			store.state.counters.currentStage =
+			{{ $store.state.counters.currentStage }}
+		</p>
+		<p>
+			store.state.counters.playerCurrent =
+			{{ $store.state.counters.playerCurrent }}
+		</p>
+		<p>
+			store.state.counters.turnCurrent =
+			{{ $store.state.counters.turnCurrent }}
+		</p>
+		<p>gameSettings:</p>
+		<p>
+			store.state.gameSettings.playersTotal =
+			{{ $store.state.gameSettings.playersTotal }}
+		</p>
+		<p>
+			store.state.gameSettings.era4 =
+			{{ $store.state.gameSettings.era4 }}
+		</p>
+		<p>
+			store.state.gameSettings.era5 =
+			{{ $store.state.gameSettings.era5 }}
+		</p>
+		<p>
+			store.state.gameSettings.era6 =
+			{{ $store.state.gameSettings.era6 }}
+		</p>
+	</div>
 </template>
 
 <script>
@@ -50,12 +76,13 @@ import TheButton from '@/components/TheButton.vue';
 import { useStore } from 'vuex';
 import { ref, computed, watch, onMounted } from 'vue';
 export default {
+	emits: ['roll', 'turnButtonClicked'],
 	components: { TheButton },
-	setup() {
+	setup(props, context) {
 		const store = useStore();
 		const currentStage = ref(store.state.counters.currentStage);
 		const disabledStages = [0, 3, 14, 16, 18, 19];
-		console.log(+currentStage.value);
+
 		const isButtonDisabled = computed(() => {
 			return disabledStages.includes(+currentStage.value);
 		});
@@ -143,10 +170,42 @@ export default {
 			}
 		});
 
+		// Roll
+		// 1d6 - 1, 4, 8, 9
+		// 2d6 - 2, 6, 17
+		// 3d6 - 10, 11, 12, 13, 15
+		// Generators - 5, 7
+		// Sub-arrays - 14
+		function getDicesAmount(stage) {
+			if ([1, 4, 8, 9].includes(stage)) {
+				return 1;
+			}
+			if ([2, 6, 17].includes(stage)) {
+				return 2;
+			}
+			if ([10, 11, 12, 13, 15].includes(stage)) {
+				return 3;
+			}
+
+			return 1;
+		}
+		function roll() {
+			context.emit('roll', {
+				stage: +store.state.counters.currentStage,
+				amount: getDicesAmount(+store.state.counters.currentStage),
+				clearRolls: true,
+			});
+		}
+
+		function turnButtonClicked() {
+			context.emit('turnButtonClicked');
+		}
 		return {
 			clickedCounter,
 			isButtonDisabled,
 			isFirstTurn,
+			roll,
+			turnButtonClicked,
 		};
 	},
 };

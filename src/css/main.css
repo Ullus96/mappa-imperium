@@ -217,6 +217,25 @@ h6 {
     opacity: 1;
   }
 }
+@keyframes diceRotation {
+  0% {
+    transform: rotateZ(-8deg);
+  }
+  50% {
+    transform: rotateZ(8deg);
+  }
+  100% {
+    transform: rotateZ(-8deg);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .nav {
   padding: 6rem 0 0 0;
   width: 100%;
@@ -341,16 +360,37 @@ h6 {
   background-color: #000;
   color: #ffedd8;
   font-size: 1.6rem;
+  padding: 1.2rem 1.8rem;
+  border-radius: 0.8rem;
 }
 
 .footer {
   background-color: #000;
   color: #ffedd8;
 }
+.footer a {
+  position: relative;
+  display: inline;
+}
+.footer a::after {
+  content: "";
+  background-color: #e7bc91;
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  bottom: -1px;
+  left: 0;
+  transform: rotateY(90deg);
+  transition: 0.2s transform ease-in-out;
+}
+.footer a:hover::after {
+  transform: rotateY(20deg);
+}
 .footer__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 8rem;
+  margin-bottom: 4rem;
 }
 .footer__collumn {
   display: flex;
@@ -374,24 +414,6 @@ h6 {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-}
-.footer__links a {
-  position: relative;
-  display: inline;
-}
-.footer__links a::after {
-  content: "";
-  background-color: #e7bc91;
-  position: absolute;
-  height: 1px;
-  width: 100%;
-  bottom: -1px;
-  left: 0;
-  transform: rotateY(90deg);
-  transition: 0.2s transform ease-in-out;
-}
-.footer__links a:hover::after {
-  transform: rotateY(20deg);
 }
 .footer__tooltip {
   position: relative;
@@ -422,6 +444,9 @@ h6 {
 }
 .footer__tooltip div i {
   cursor: pointer;
+}
+.footer__extra-info {
+  opacity: 0.6;
 }
 
 .era__title {
@@ -499,6 +524,7 @@ h6 {
   display: grid;
   gap: 4rem;
   padding: 0 10rem 10rem;
+  animation: fadeIn 0.5s ease-out;
 }
 .result__content:nth-child(odd) {
   grid-template-columns: 40% 60%;
@@ -511,6 +537,9 @@ h6 {
 }
 .result__content:nth-child(even) .result__img {
   order: 1;
+}
+.result__img {
+  align-self: center;
 }
 .result__img img {
   width: 100%;
@@ -542,6 +571,28 @@ h6 {
 }
 .result__description p {
   margin-bottom: 1rem;
+}
+.result__rolling-action {
+  margin-top: -4rem;
+  margin-bottom: 6rem;
+}
+.result__dice-animation {
+  animation: diceRotation 0.5s infinite alternate;
+  transform-origin: center;
+}
+.result__extra-btns {
+  justify-content: center;
+  display: flex;
+  gap: 1rem;
+}
+
+.debug__content {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 1rem;
+  position: fixed;
+  left: 74%;
+  top: 50%;
 }
 
 table {

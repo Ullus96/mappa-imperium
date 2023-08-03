@@ -5,7 +5,7 @@
 			type === 'animated' ? 'animated' : '',
 			type === 'highlight' ? 'highlight' : '',
 		]"
-		:disabled="$store.state.isInTransition"
+		:disabled="$store.state.isInTransition || $store.state.isRolling"
 	>
 		<span><slot></slot></span>
 	</button>
