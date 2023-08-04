@@ -5,17 +5,53 @@
 		padding: 0rem 10rem 0;
 		width: 100%;
 		display: flex;
+
+		@include desktop-small {
+			padding: 0rem 8rem 0;
+		}
+
+		@include tablet {
+			padding: 0rem 6rem 0;
+		}
+
+		@include phone {
+			padding: 0rem 4rem 0;
+		}
 	}
 
 	&__content {
 		position: relative;
 		padding: 0 10rem 10rem;
+
+		@include desktop-small {
+			padding: 0 8rem 8rem;
+		}
+
+		@include tablet {
+			padding: 0 6rem 6rem;
+		}
+
+		@include phone {
+			padding: 0 4rem 4rem;
+		}
 	}
 
 	&__title {
 		position: relative;
-		padding-top: 20rem;
+		padding-top: 16rem;
 		z-index: 3;
+
+		@include desktop-small {
+			padding-top: 14rem;
+		}
+
+		@include tablet {
+			padding-top: 6rem;
+		}
+
+		@include phone {
+			padding-top: 2rem;
+		}
 	}
 
 	&__background {
@@ -25,6 +61,19 @@
 		bottom: 6%;
 		transform: translateX(-50%);
 		z-index: 1;
+
+		@include desktop-small {
+			bottom: 2%;
+		}
+
+		@include tablet {
+			width: 50%;
+		}
+
+		@include phone {
+			width: 80%;
+			bottom: 2%;
+		}
 	}
 }
 

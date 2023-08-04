@@ -4,6 +4,18 @@
 
 	&__container {
 		padding: 10rem 10rem 6rem;
+
+		@include desktop-small {
+			padding: 8rem 8rem 5rem;
+		}
+
+		@include tablet {
+			padding: 6rem 6rem 4rem;
+		}
+
+		@include phone {
+			padding: 4rem 4rem 4rem;
+		}
 	}
 
 	& a {

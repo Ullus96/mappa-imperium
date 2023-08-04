@@ -20,6 +20,18 @@
 
 	&__description-wrapper {
 		margin-bottom: 6rem;
+
+		@include desktop-small {
+			margin-bottom: 5rem;
+		}
+
+		@include tablet {
+			margin-bottom: 4rem;
+		}
+
+		@include phone {
+			margin-bottom: 3rem;
+		}
 	}
 
 	&__buttons {

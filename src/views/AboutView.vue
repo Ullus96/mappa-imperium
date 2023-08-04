@@ -3,7 +3,7 @@
 		<div class="header__content container">
 			<img src="@/assets/wind-rose.png" alt="#" class="header__background" />
 			<h1 class="header__title">
-				Unleash your world-building skills. Discover <br />Mappa Imperium.
+				Unleash your world-building skills.<br />Discover <br />Mappa Imperium.
 			</h1>
 		</div>
 	</header>

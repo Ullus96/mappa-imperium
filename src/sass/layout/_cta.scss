@@ -9,6 +9,18 @@
 	&__container {
 		max-width: 50%;
 		text-align: center;
+
+		@include desktop-small {
+			max-width: 60%;
+		}
+
+		@include tablet {
+			max-width: 70%;
+		}
+
+		@include phone {
+			max-width: 80%;
+		}
 	}
 
 	&__title {

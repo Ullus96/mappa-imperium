@@ -9,6 +9,11 @@
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		gap: 4rem;
+
+		@include phone {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1rem;
+		}
 	}
 
 	&__image {
@@ -27,5 +32,12 @@
 		grid-template-columns: repeat(2, 1fr);
 		gap: 4rem;
 		font-size: 2rem;
+
+		@include phone {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+			padding-right: 4rem;
+		}
 	}
 }

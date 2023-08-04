@@ -10,16 +10,36 @@
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
+
+		@include tablet {
+			flex-direction: column;
+		}
+
+		@include phone {
+			flex-direction: column;
+		}
 	}
 
 	&__item {
 		padding: 1.2rem 0.9rem;
 		cursor: pointer;
+
+		a i {
+			display: inline;
+		}
 	}
 
 	&__logo {
 		height: 5.5rem;
 		margin-right: 12rem;
+
+		@include tablet {
+			margin-right: 0;
+		}
+
+		@include phone {
+			margin-right: 0;
+		}
 	}
 
 	&__list--center {
@@ -27,5 +47,13 @@
 		flex-grow: 1;
 		justify-content: space-between;
 		gap: 3rem;
+
+		@include tablet {
+			gap: 6rem;
+		}
+
+		@include phone {
+			gap: 6rem;
+		}
 	}
 }

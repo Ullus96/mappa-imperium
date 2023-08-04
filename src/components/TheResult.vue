@@ -13,7 +13,7 @@
 		<div class="result__info">
 			<div class="result__dices">
 				<div
-					class="result__dice"
+					class="result__dice result__dice--phone"
 					v-for="(dice, index) in data.rolls"
 					:key="index"
 				>

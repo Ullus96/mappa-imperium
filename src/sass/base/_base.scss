@@ -12,6 +12,18 @@
 //(10px / 16px = 0.625 = 62.5%) in case if default font size is more than 16px
 html {
 	font-size: 62.5%;
+
+	@include desktop-small {
+		font-size: 56.25%;
+	}
+
+	@include tablet {
+		font-size: 50%;
+	}
+
+	@include phone {
+		font-size: 43.75%;
+	}
 }
 
 body {
@@ -63,14 +75,6 @@ button {
 	font-weight: 700;
 	font-family: $font-body;
 }
-
-// .btn {
-// 	padding: 1.2rem 1.5rem;
-// 	border-radius: 0.8rem;
-// 	cursor: pointer;
-// font-weight: 400;
-// font-family: $font-body;
-// }
 
 h1,
 h2,

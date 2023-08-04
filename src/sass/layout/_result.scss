@@ -5,11 +5,38 @@
 		padding: 0 10rem 10rem;
 		// animation: fadeIn 0.5s ease-out;
 
+		@include desktop-small {
+			padding: 0 8rem 8rem;
+		}
+
+		@include tablet {
+			padding: 0 6rem 6rem;
+		}
+
+		@include phone {
+			padding: 0 4rem 4rem;
+		}
+
 		&:nth-child(odd) {
 			grid-template-columns: 40% 60%;
 
 			& .result__img {
 				order: 0;
+
+				@include phone {
+					aspect-ratio: 1/2;
+				}
+
+				& img {
+					@include phone {
+						object-fit: cover;
+						height: 100%;
+					}
+				}
+			}
+
+			& .result__info {
+				padding-right: 4rem;
 			}
 		}
 
@@ -18,6 +45,23 @@
 
 			& .result__img {
 				order: 1;
+
+				@include phone {
+					aspect-ratio: 1/2;
+					padding-right: 4rem;
+					margin-left: -4rem;
+				}
+
+				& img {
+					@include phone {
+						object-fit: cover;
+						height: 100%;
+					}
+				}
+			}
+
+			& .result__info {
+				padding-right: 4rem;
 			}
 		}
 	}
@@ -39,6 +83,32 @@
 
 	&__dice {
 		position: relative;
+
+		& img {
+			@include desktop-small {
+				width: 14rem;
+			}
+
+			@include tablet {
+				width: 12rem;
+			}
+
+			@include phone {
+				width: 10rem;
+			}
+		}
+
+		&--phone {
+			& img {
+				@include tablet {
+					width: 9rem;
+				}
+
+				@include phone {
+					width: 8rem;
+				}
+			}
+		}
 	}
 
 	&__dice-total {
@@ -51,12 +121,20 @@
 		font-size: 4rem;
 		font-family: $font-header;
 		text-align: center;
+
+		@include phone {
+			font-size: 3rem;
+		}
 	}
 
 	&__subtitle {
 		text-align: center;
 		opacity: 0.8;
 		margin-bottom: 3rem;
+
+		@include phone {
+			font-size: 1.8rem;
+		}
 	}
 
 	&__description p {
@@ -66,6 +144,21 @@
 	&__rolling-action {
 		margin-top: -4rem;
 		margin-bottom: 6rem;
+
+		@include desktop-small {
+			margin-top: -3rem;
+			margin-bottom: 5rem;
+		}
+
+		@include tablet {
+			margin-top: -2rem;
+			margin-bottom: 4rem;
+		}
+
+		@include phone {
+			margin-top: -1rem;
+			margin-bottom: 3rem;
+		}
 	}
 
 	&__dice-animation {

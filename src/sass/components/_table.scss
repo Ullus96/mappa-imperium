@@ -3,6 +3,14 @@ table {
 	margin-bottom: 1rem;
 	border-collapse: collapse;
 
+	@include tablet {
+		min-width: 65%;
+	}
+
+	@include phone {
+		min-width: 100%;
+	}
+
 	caption {
 		text-align: left;
 		font-family: $font-body;

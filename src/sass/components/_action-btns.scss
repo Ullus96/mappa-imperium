@@ -74,12 +74,6 @@
 				border: 2px solid $color-accent-3;
 			}
 		}
-
-		// &.disabled {
-		// 	cursor: not-allowed;
-		// 	color: rgba($color-text, 0.5);
-		// 	border: 2px solid rgba($color-text, 0.4);
-		// }
 	}
 
 	&__btns-sub {
@@ -110,6 +104,18 @@
 			& .action__btn {
 				padding: 0.6rem 1.2rem;
 				font-size: 1.4rem;
+
+				@include desktop-small {
+					font-size: 1.5rem;
+				}
+
+				@include tablet {
+					font-size: 1.6rem;
+				}
+
+				@include phone {
+					font-size: 1.9rem;
+				}
 			}
 		}
 	}

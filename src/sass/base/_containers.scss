@@ -2,6 +2,18 @@
 	max-width: 120rem;
 	padding: 10rem;
 	margin: 0 auto;
+
+	@include desktop-small {
+		padding: 8rem;
+	}
+
+	@include tablet {
+		padding: 6rem;
+	}
+
+	@include phone {
+		padding: 4rem;
+	}
 }
 
 .app-container {
