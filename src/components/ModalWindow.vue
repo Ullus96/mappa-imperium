@@ -104,7 +104,6 @@ export default {
 	setup() {
 		const store = useStore();
 		function changeGameOption(setting, operation) {
-			console.log(`setting: ${setting}; operation: ${operation}`);
 			if (operation === 'plus') {
 				store.state.gameSettings[setting]++;
 				localStorage.setItem(setting, store.state.gameSettings[setting]);

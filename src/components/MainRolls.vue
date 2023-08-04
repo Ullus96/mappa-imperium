@@ -100,8 +100,6 @@ export default {
 		);
 
 		function clickedCounter(name, operation) {
-			console.log(name + operation);
-
 			store.commit('modifyCounter', { name, operation });
 
 			localStorage.setItem('turnCurrent', store.state.counters.turnCurrent);

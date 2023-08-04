@@ -146,8 +146,6 @@ export default {
 		let rolledResults = reactive([]);
 
 		function roll(payload) {
-			console.log(rolledResults);
-			console.log(payload);
 			store.commit('toggleRolling');
 
 			if (payload.clearRolls) {
@@ -169,9 +167,6 @@ export default {
 				rolls,
 				finalAmount,
 			};
-
-			// final results
-			console.log(packedResults);
 
 			setTimeout(() => {
 				store.commit('toggleRolling');
@@ -237,7 +232,6 @@ export default {
 			}
 
 			if (name === 'faction') {
-				console.log(factionData);
 				let symbol, naming;
 				let colorPrimary = {};
 				let colorSecondary = {};
