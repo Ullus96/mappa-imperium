@@ -76,7 +76,49 @@
 	&__extra-btns {
 		justify-content: center;
 		display: flex;
+		flex-wrap: wrap;
 		margin-top: 2rem;
 		gap: 1rem;
+	}
+
+	// Generators special rules
+	&__title--deity {
+		font-size: 3.6rem;
+		margin-top: 4rem;
+		margin-bottom: 1rem;
+	}
+
+	&__description--faction {
+		margin-top: 2rem;
+	}
+
+	&__faction-flag {
+		position: relative;
+		border-radius: 1.5rem;
+		overflow: hidden;
+		width: 100%;
+		aspect-ratio: 1/1;
+
+		&--texture {
+			background: url(@/assets/silk5.jpg);
+			mix-blend-mode: multiply;
+			background-size: cover;
+			z-index: 4;
+			position: absolute;
+			inset: 0 0 0 0;
+		}
+	}
+
+	&__color-primary {
+		position: absolute;
+		inset: 0 0 0 0;
+	}
+
+	&__color-secondary {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 40%;
+		bottom: 40%;
 	}
 }

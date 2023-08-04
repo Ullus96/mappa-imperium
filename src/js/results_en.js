@@ -184,7 +184,6 @@ const results = [
 		info: {
 			title: 'Era I: Age of Creation',
 			subtitle: 'Touching up and placing resources',
-			noRoll: true,
 			desc: `
       <p>
 				Each player may take a moment to touch up and fill any gaps in their
@@ -291,11 +290,6 @@ const results = [
 				<i class="fa-solid fa-cloud-bolt era__symbol"></i> — Her'Remea, Goddess of Rain
 			</p>
 			<p><i class="fa-solid fa-hurricane era__symbol"></i> — Choya, God of Vengeance</p>`,
-		},
-		1: {
-			title: 'Title',
-			desc: '<p></p>',
-			img: img(''),
 		},
 	},
 	// Race 6
@@ -445,11 +439,6 @@ const results = [
       geography after this first leader
     </p>`,
 		},
-		1: {
-			title: 'Title',
-			desc: '<p></p>',
-			img: img(''),
-		},
 	},
 	// Neighbors 8
 	{
@@ -501,6 +490,11 @@ const results = [
 					component: 'TheButton',
 					text: 'Settlement',
 					data: { stage: 9, amount: 1, clearRolls: false },
+				},
+				{
+					component: 'TheButton',
+					text: 'Faction',
+					data: { name: 'faction', clearRolls: false },
 				},
 			],
 			img: img('8/3'),
@@ -619,11 +613,42 @@ const results = [
 			desc: '<p>Your scouts have made a historic discovery – the ruins of a lost civilization. Draw the ruins and place a new cult, hive, mage, or tribe nearby. </p>',
 			img: img('10/6'),
 		},
-		// ======= FILL EXTRA BTNS WITH NEIGHBORS =========
 		7: {
 			title: 'Neighbors Develop',
 			subtitle: 'Rising Factions',
 			desc: '<p>The Era of Discoveries has set neighboring factions on a path of development. Select any neighbor and roll on the appropriate Neighbor Type below to witness the unfolding of new powers and influences:</p>',
+			extraBtns: [
+				{
+					component: 'TheButton',
+					text: 'Minor Kingdom',
+					data: { stage: 21, amount: 1, clearRolls: false },
+				},
+				{
+					component: 'TheButton',
+					text: 'Tribe / Bandits / Pirates',
+					data: { stage: 22, amount: 1, clearRolls: false },
+				},
+				{
+					component: 'TheButton',
+					text: 'Hive',
+					data: { stage: 23, amount: 1, clearRolls: false },
+				},
+				{
+					component: 'TheButton',
+					text: 'Magic User',
+					data: { stage: 24, amount: 1, clearRolls: false },
+				},
+				{
+					component: 'TheButton',
+					text: 'Cult / Lair / Order',
+					data: { stage: 25, amount: 1, clearRolls: false },
+				},
+				{
+					component: 'TheButton',
+					text: 'Monster',
+					data: { stage: 26, amount: 1, clearRolls: false },
+				},
+			],
 			img: img('10/7'),
 		},
 		8: {
@@ -646,6 +671,11 @@ const results = [
 					component: 'TheButton',
 					text: 'Settlement',
 					data: { stage: 9, amount: 1, clearRolls: false },
+				},
+				{
+					component: 'TheButton',
+					text: 'Faction',
+					data: { name: 'faction', clearRolls: false },
 				},
 			],
 			img: img('10/9'),
@@ -983,19 +1013,40 @@ const results = [
 		3: {
 			title: 'The King is Dead',
 			subtitle: 'Heirless Crisis',
-			desc: '<p>Leader of your Empire has died without a proper heir, plunging your realm into anarchy. The Empire is now divided into at least 3 factions, each vying for control. You must create new names and banners for these factions. You can make any on this Empires your new Prime Faction.</p>',
+			desc: '<p>Leader of your Empire has died without a proper heir, plunging your realm into anarchy. The Empire is now divided into at least 3 factions, each vying for control. You must create new names and banners for these factions. You can make any of this Empires your new Prime Faction.</p>',
+			extraBtns: [
+				{
+					component: 'TheButton',
+					text: 'Faction',
+					data: { name: 'faction', clearRolls: false },
+				},
+			],
 			img: img('13/3'),
 		},
 		4: {
 			title: 'Overthrown',
 			subtitle: "People's Revolt",
 			desc: '<p>One of your settlements has grown tired of your rule and overthrown the ruling class. This new "free" city emerges with its own identity and aspirations. You must rename this city and create a new faction with a name and banner that represents the aspirations of its people.</p>',
+			extraBtns: [
+				{
+					component: 'TheButton',
+					text: 'Faction',
+					data: { name: 'faction', clearRolls: false },
+				},
+			],
 			img: img('13/4'),
 		},
 		5: {
 			title: 'Shrine',
 			subtitle: 'Divine Sanctuary',
 			desc: '<p>A nearby location has come to be seen as sacred grounds to your people. They have built a shrine or temple to honor the deity worshipped here. Choose an existing deity or create a new one. This holy site may become a center of pilgrimage and spirituality.</p>',
+			extraBtns: [
+				{
+					component: 'TheButton',
+					text: 'Create a Deity',
+					data: { name: 'deity', clearRolls: false },
+				},
+			],
 			img: img('13/5'),
 		},
 		6: {
@@ -1024,7 +1075,7 @@ const results = [
 			extraBtns: [
 				{
 					component: 'TheButton',
-					text: 'To Arms!',
+					text: 'Attack!',
 					data: { stage: 20, amount: 1, clearRolls: false },
 				},
 			],
@@ -1034,6 +1085,38 @@ const results = [
 			title: 'Neighbors Develop',
 			subtitle: 'Rivals Evolve',
 			desc: '<p>Select any neighbor and Roll on appropriate Neighbor Type. This shift in the geopolitical landscape may present new challenges or opportunities for your Empire. Handle your relations with tact and strategy as you navigate these changes.</p>',
+			extraBtns: [
+				{
+					component: 'TheButton',
+					text: 'Minor Kingdom',
+					data: { stage: 21, amount: 1, clearRolls: false },
+				},
+				{
+					component: 'TheButton',
+					text: 'Tribe / Bandits / Pirates',
+					data: { stage: 22, amount: 1, clearRolls: false },
+				},
+				{
+					component: 'TheButton',
+					text: 'Hive',
+					data: { stage: 23, amount: 1, clearRolls: false },
+				},
+				{
+					component: 'TheButton',
+					text: 'Magic User',
+					data: { stage: 24, amount: 1, clearRolls: false },
+				},
+				{
+					component: 'TheButton',
+					text: 'Cult / Lair / Order',
+					data: { stage: 25, amount: 1, clearRolls: false },
+				},
+				{
+					component: 'TheButton',
+					text: 'Monster',
+					data: { stage: 26, amount: 1, clearRolls: false },
+				},
+			],
 			img: img('10/7'),
 		},
 		10: {
@@ -1095,6 +1178,13 @@ const results = [
 			title: 'Revolution',
 			subtitle: "Dissent's Triumph",
 			desc: '<p>Your Empire faces a formidable uprising as half of its territory splits away to form a new faction. Bestow upon this insurgent group a name and banner, symbolizing their quest for autonomy. They are now considered a hostile neighbor challenging your authority.</p>',
+			extraBtns: [
+				{
+					component: 'TheButton',
+					text: 'Faction',
+					data: { name: 'faction', clearRolls: false },
+				},
+			],
 			img: img('13/18'),
 		},
 	},
@@ -1113,18 +1203,37 @@ const results = [
 				different buttons below:
 			</p>`,
 			extraBtns: [
-				{ component: 'TheButton', text: 'Minor Faction' },
-				{ component: 'TheButton', text: 'Tribe/Bandits/Pirates' },
-				{ component: 'TheButton', text: 'Hive' },
-				{ component: 'TheButton', text: 'Magic User' },
-				{ component: 'TheButton', text: 'Cult/Lair/Order' },
-				{ component: 'TheButton', text: 'Monster' },
+				{
+					component: 'TheButton',
+					text: 'Minor Kingdom',
+					data: { stage: 21, amount: 1, clearRolls: false },
+				},
+				{
+					component: 'TheButton',
+					text: 'Tribe / Bandits / Pirates',
+					data: { stage: 22, amount: 1, clearRolls: false },
+				},
+				{
+					component: 'TheButton',
+					text: 'Hive',
+					data: { stage: 23, amount: 1, clearRolls: false },
+				},
+				{
+					component: 'TheButton',
+					text: 'Magic User',
+					data: { stage: 24, amount: 1, clearRolls: false },
+				},
+				{
+					component: 'TheButton',
+					text: 'Cult / Lair / Order',
+					data: { stage: 25, amount: 1, clearRolls: false },
+				},
+				{
+					component: 'TheButton',
+					text: 'Monster',
+					data: { stage: 26, amount: 1, clearRolls: false },
+				},
 			],
-		},
-		1: {
-			title: 'Title',
-			desc: '<p></p>',
-			img: img(''),
 		},
 	},
 	// Age of Collapse 15
@@ -1163,6 +1272,13 @@ const results = [
 			subtitle: 'Divine Devotion',
 			desc: '<p>A new religion has gained prominence in your Empire. Evoke the reverence for this faith by selecting an existing deity, or Roll a new one, and erect a cathedral or majestic temple in its honor anywhere within your lands.</p>',
 			img: img('15/6'),
+			extraBtns: [
+				{
+					component: 'TheButton',
+					text: 'Create a Deity',
+					data: { name: 'deity', clearRolls: false },
+				},
+			],
 		},
 		7: {
 			title: 'Refugees',
@@ -1203,7 +1319,7 @@ const results = [
 			extraBtns: [
 				{
 					component: 'TheButton',
-					text: 'To Arms!',
+					text: 'Attack!',
 					data: { stage: 20, amount: 1, clearRolls: false },
 				},
 			],
@@ -1213,6 +1329,38 @@ const results = [
 			title: 'Neighbors Develop',
 			subtitle: 'Geopolitical Shift',
 			desc: '<p>Select any neighbor and Roll on appropriate Neighbor Type. This shift in the geopolitical landscape may present new challenges or opportunities for your Empire. Handle your relations with tact and strategy as you navigate these changes.</p>',
+			extraBtns: [
+				{
+					component: 'TheButton',
+					text: 'Minor Kingdom',
+					data: { stage: 21, amount: 1, clearRolls: false },
+				},
+				{
+					component: 'TheButton',
+					text: 'Tribe / Bandits / Pirates',
+					data: { stage: 22, amount: 1, clearRolls: false },
+				},
+				{
+					component: 'TheButton',
+					text: 'Hive',
+					data: { stage: 23, amount: 1, clearRolls: false },
+				},
+				{
+					component: 'TheButton',
+					text: 'Magic User',
+					data: { stage: 24, amount: 1, clearRolls: false },
+				},
+				{
+					component: 'TheButton',
+					text: 'Cult / Lair / Order',
+					data: { stage: 25, amount: 1, clearRolls: false },
+				},
+				{
+					component: 'TheButton',
+					text: 'Monster',
+					data: { stage: 26, amount: 1, clearRolls: false },
+				},
+			],
 			img: img('10/7'),
 		},
 		12: {
@@ -1225,6 +1373,13 @@ const results = [
 			title: 'Disaster',
 			subtitle: 'Unfortunate Misfortune',
 			desc: '<p>Something terrible has struck your Empire, be it a natural disaster, a malevolent magical event, famine, or disease. The severity of this misfortune varies, ranging from a mere inconvenience to a severe catastrophe. Roll to determine the severity (1 is weak, 6 is most severe). Remove at least 1 settlement and replace it with a ruin, marking the impact of this disaster on your Empire.</p>',
+			extraBtns: [
+				{
+					component: 'TheButton',
+					text: 'Roll D6',
+					data: { stage: 27, amount: 1, clearRolls: false },
+				},
+			],
 			img: img('15/13'),
 		},
 		14: {
@@ -1243,6 +1398,13 @@ const results = [
 			title: 'Revolution',
 			subtitle: 'Call for Freedom',
 			desc: '<p>Your Empire faces a formidable uprising as half of its territory secedes to form a new faction. This revolutionary movement demands autonomy, and its members now stand as hostile neighbors challenging your authority. Bestow upon this insurgent group a name and banner, symbolizing their relentless quest for independence and self-governance.</p>',
+			extraBtns: [
+				{
+					component: 'TheButton',
+					text: 'Faction',
+					data: { name: 'faction', clearRolls: false },
+				},
+			],
 			img: img('13/4'),
 		},
 		17: {
@@ -1278,11 +1440,6 @@ const results = [
 				even a nearby monster. These may be placed anywhere on map.
 			</p>`,
 		},
-		1: {
-			title: 'Title',
-			desc: '<p></p>',
-			img: img(''),
-		},
 	},
 	// Omens 17
 	{
@@ -1300,10 +1457,71 @@ const results = [
 				story, or who all decide ended with the most powerful faction.
 			</p>`,
 		},
-		1: {
-			title: 'Title',
-			desc: '<p></p>',
-			img: img(''),
+		2: {
+			title: 'Black Smoke',
+			subtitle: 'Eerie Eruption',
+			desc: '<p>Black smoke is seen rising from the tallest peak. Name that peak now.</p>',
+			img: img('17/1'),
+		},
+		3: {
+			title: 'Abyss',
+			subtitle: 'Enigmatic Sounds',
+			desc: '<p>Rumors begin to spread about strange sounds coming from a point in the largest ocean. Name that ocean or bay now.</p>',
+			img: img('17/1'),
+		},
+		4: {
+			title: 'Blinding Light',
+			subtitle: 'Luminous Enigma',
+			desc: '<p>A bright light appears, coming from the least inhabited island. Name that island.</p>',
+			img: img('17/1'),
+		},
+		5: {
+			title: 'Silence',
+			subtitle: 'Divine Disquietude',
+			desc: "<p>Rumors begin to spread amongst the world's temples that something is wrong with the Gods...</p>",
+			img: img('17/1'),
+		},
+		6: {
+			title: 'River of Blood',
+			subtitle: 'Crimson Waters',
+			desc: "<p>One of the world's rivers or lakes begins to change color. Name that river or lake.</p>",
+			img: img('17/1'),
+		},
+		7: {
+			title: 'Comet',
+			subtitle: 'Celestial Herald',
+			desc: '<p>A comet fills the night sky. Is this a dark omen or sign of prosperity?</p>',
+			img: img('17/1'),
+		},
+		8: {
+			title: 'They Know Something',
+			subtitle: 'Avian Exodus',
+			desc: '<p>For several days, birds are all seen flying away from one island. Name that island.</p>',
+			img: img('17/1'),
+		},
+		9: {
+			title: 'Stench',
+			subtitle: 'Profane Aura',
+			desc: '<p>A fould stench begins emanating from one of the Sacred Sites.</p>',
+			img: img('17/1'),
+		},
+		10: {
+			title: 'Howl',
+			subtitle: 'Nocturnal Wail',
+			desc: '<p>At sundown, a deafening howl is heard across the world.</p>',
+			img: img('17/1'),
+		},
+		11: {
+			title: 'Terror',
+			subtitle: 'Haunting Return',
+			desc: '<p>Rumors spread the something is back...</p>',
+			img: img('17/1'),
+		},
+		12: {
+			title: 'Meteor Storm',
+			subtitle: 'Stellar Onslaught',
+			desc: "<p>Thousands of meteors pepper the land. What's left when the dust clears?</p>",
+			img: img('17/1'),
 		},
 	},
 	// Finalizing 18
@@ -1318,11 +1536,6 @@ const results = [
 				Then, draw in some accents for final touches, like compass rose, ships
 				in open water, sea monsters and etc.
 			</p>`,
-		},
-		1: {
-			title: 'Title',
-			desc: '<p></p>',
-			img: img(''),
 		},
 	},
 	// End of the game 19
@@ -1391,7 +1604,7 @@ const results = [
 			img: img('20/1'),
 		},
 	},
-	// ==== Minor Faction (21) ====
+	// ==== Minor Kingdom (21) ====
 	{
 		1: {
 			title: 'Expand',
@@ -1421,7 +1634,7 @@ const results = [
 		4: {
 			title: 'Union',
 			subtitle: 'Harmonious Merger',
-			desc: '<p>Select a nearby tribe and merge them into the minor faction, becoming one nation.</p>',
+			desc: '<p>Select a nearby tribe and merge them into the Minor Kingdom, becoming one nation.</p>',
 			img: img('8/3'),
 		},
 		5: {
@@ -1461,7 +1674,7 @@ const results = [
 		3: {
 			title: 'Advancement',
 			subtitle: 'Rising Power',
-			desc: '<p>Strong leadership has taken control of the tribe. Upgrade to a Minor Faction by giving a banner and name.</p>',
+			desc: '<p>Strong leadership has taken control of the tribe. Upgrade to a Minor Kingdom by giving a banner and name.</p>',
 			img: img('8/2'),
 		},
 		4: {
@@ -1504,7 +1717,7 @@ const results = [
 			extraBtns: [
 				{
 					component: 'TheButton',
-					text: 'War!',
+					text: 'Raid',
 					data: { stage: 27, amount: 1, clearRolls: false },
 				},
 			],
@@ -1544,7 +1757,7 @@ const results = [
 			extraBtns: [
 				{
 					component: 'TheButton',
-					text: 'War!',
+					text: 'Raid',
 					data: { stage: 27, amount: 1, clearRolls: false },
 				},
 			],
@@ -1623,17 +1836,17 @@ const results = [
 			extraBtns: [
 				{
 					component: 'TheButton',
-					text: 'War!',
+					text: 'Raid',
 					data: { stage: 27, amount: 1, clearRolls: false },
 				},
 			],
-			img: img('8/2'),
+			img: img('8/6'),
 		},
 		2: {
 			title: 'Treasure',
 			subtitle: 'Hoarded Riches',
 			desc: '<p>Whether by offering, sacrifice or assault, the moster has accumulated vast amounts of wealth. Draw in a tresure hold or gold laden lair.</p>',
-			img: img('8/2'),
+			img: img('8/6'),
 		},
 		3: {
 			title: 'Raid',
@@ -1642,255 +1855,143 @@ const results = [
 			extraBtns: [
 				{
 					component: 'TheButton',
-					text: 'War!',
+					text: 'Raid',
 					data: { stage: 27, amount: 1, clearRolls: false },
 				},
 			],
-			img: img('8/2'),
+			img: img('8/6'),
 		},
 		4: {
 			title: 'Ascension',
 			subtitle: 'Divine Reverence',
 			desc: "<p>Fantastic stories are being spread about the monster. Add it to the list of Gods and select a domain and symbol for it (give it a name if you haven't yet).</p>",
-			img: img('8/2'),
+			img: img('8/6'),
 		},
 		5: {
 			title: 'Lair Building',
 			subtitle: 'Monstrous Abode',
 			desc: '<p>The moster is settling in. They or their followers are creating a proper lair or den. Draw in a home, cave, tower or sanctum.</p>',
-			img: img('8/2'),
+			img: img('8/6'),
 		},
 		6: {
 			title: 'Fury',
 			subtitle: 'Wrathful Havoc',
 			desc: '<p>The monster has unleashed its rage onto a nearby settlement. Destroy and replace it with a ruin.</p>',
-			img: img('8/2'),
+			img: img('8/6'),
 		},
 	},
 	// ==== d6 (27) ====
 	{
 		1: {
-			title: '',
+			title: '1',
 			subtitle: '',
 			desc: '<p></p>',
-			img: img('8/2'),
+			img: img('27/1'),
 		},
 		2: {
-			title: '',
+			title: '2',
 			subtitle: '',
 			desc: '<p></p>',
-			img: img('8/2'),
+			img: img('27/1'),
 		},
 		3: {
-			title: '',
+			title: '3',
 			subtitle: '',
 			desc: '<p></p>',
-			img: img('8/2'),
+			img: img('27/1'),
 		},
 		4: {
-			title: '',
+			title: '4',
 			subtitle: '',
 			desc: '<p></p>',
-			img: img('8/2'),
+			img: img('27/1'),
 		},
 		5: {
-			title: '',
+			title: '5',
 			subtitle: '',
 			desc: '<p></p>',
-			img: img('8/2'),
+			img: img('27/1'),
 		},
 		6: {
-			title: '',
+			title: '6',
 			subtitle: '',
 			desc: '<p></p>',
-			img: img('8/2'),
+			img: img('27/1'),
 		},
 		7: {
-			title: '',
+			title: '7',
 			subtitle: '',
 			desc: '<p></p>',
-			img: img('8/2'),
+			img: img('27/1'),
 		},
 		8: {
-			title: '',
+			title: '8',
 			subtitle: '',
 			desc: '<p></p>',
-			img: img('8/2'),
+			img: img('27/1'),
 		},
 		9: {
-			title: '',
+			title: '9',
 			subtitle: '',
 			desc: '<p></p>',
-			img: img('8/2'),
+			img: img('27/1'),
 		},
 		10: {
-			title: '',
+			title: '10',
 			subtitle: '',
 			desc: '<p></p>',
-			img: img('8/2'),
+			img: img('27/1'),
 		},
 		11: {
-			title: '',
+			title: '11',
 			subtitle: '',
 			desc: '<p></p>',
-			img: img('8/2'),
+			img: img('27/1'),
 		},
 		12: {
-			title: '',
+			title: '12',
 			subtitle: '',
 			desc: '<p></p>',
-			img: img('8/2'),
+			img: img('27/1'),
 		},
 		13: {
-			title: '',
+			title: '13',
 			subtitle: '',
 			desc: '<p></p>',
-			img: img('8/2'),
+			img: img('27/1'),
 		},
 		14: {
-			title: '',
+			title: '14',
 			subtitle: '',
 			desc: '<p></p>',
-			img: img('8/2'),
+			img: img('27/1'),
 		},
 		15: {
-			title: '',
+			title: '15',
 			subtitle: '',
 			desc: '<p></p>',
-			img: img('8/2'),
+			img: img('27/1'),
 		},
 		16: {
-			title: '',
+			title: '16',
 			subtitle: '',
 			desc: '<p></p>',
-			img: img('8/2'),
+			img: img('27/1'),
 		},
 		17: {
-			title: '',
+			title: '17',
 			subtitle: '',
 			desc: '<p></p>',
-			img: img('8/2'),
+			img: img('27/1'),
 		},
 		18: {
-			title: '',
+			title: '18',
 			subtitle: '',
 			desc: '<p></p>',
-			img: img('8/2'),
+			img: img('27/1'),
 		},
 	},
 	// ==== End of Extra rolls ====
-	{
-		1: {
-			title: 'Elves',
-			subtitle: 'High Elf, Wood Elf, Drow',
-			desc: 'Elves is a group of races known for their beauty and grace.',
-		},
-		2: {
-			title: 'Seafolk',
-			subtitle: 'Merfolk, Triton, Crabfolk',
-			desc: 'Seafolk is a group of races that lives in the waters and on the shores of oceans and seas.',
-		},
-	},
 ];
 
 export default results;
-
-/*
-<template>
-  <div>
-    <button @click="handleRollButtonClick">Roll</button>
-    <p>{{ resultTitle }}</p>
-    <p>{{ resultDesc }}</p>
-    <button @click="handleRollHeroButtonClick">Roll a Hero</button>
-    <p>{{ heroTitle }}</p>
-    <p>{{ heroSubtitle }}</p>
-    <p>{{ heroDesc }}</p>
-  </div>
-</template>
-
-export default {
-  data() {
-    return {
-      counter: 1, // Значение 1 соответствует категории "landmass", 2 - "races", и т.д.
-      heroCounter: 1, // Значение 1 соответствует категории 'male', 2 - 'female'
-      results: {
-        landmass: {
-          1: {
-            title: 'Large Continent',
-            desc: 'An extremely huge landmass',
-          },
-          2: {
-            title: 'Large Island',
-            desc: 'A pretty large landmass',
-          },
-        },
-        races: {
-          1: {
-            title: 'Elves',
-            subtitle: 'High Elf, Wood Elf, Drow',
-            desc: 'Elves is a group of races known for their beauty and grace.',
-          },
-          2: {
-            title: 'Seafolk',
-            subtitle: 'Merfolk, Triton, Crabfolk',
-            desc: 'Seafolk is a group of races that lives in the waters and on the shores of oceans and seas.',
-          },
-        },
-        hero: {
-          1: {
-            title: 'male',
-            subtitle: 'Male Hero',
-            desc: 'A brave male hero.',
-          },
-          2: {
-            title: 'female',
-            subtitle: 'Female Hero',
-            desc: 'A courageous female hero.',
-          },
-        },
-        // Add more categories here
-      },
-    };
-  },
-  computed: {
-    randomResult() {
-      const category = this.counter === 1 ? 'landmass' : 'races'; // Определяем выбранную категорию на основе значения counter
-      const elements = Object.values(this.results[category]); // Получаем все элементы внутри выбранной категории
-      const randomElement = elements[Math.floor(Math.random() * elements.length)]; // Выбираем случайный элемент из выбранной категории
-
-      return randomElement;
-    },
-    randomHero() {
-      const category = this.heroCounter === 1 ? 'male' : 'female'; // Определяем выбранную категорию героев на основе значения heroCounter
-      const elements = Object.values(this.results.hero); // Получаем все элементы внутри выбранной категории героев
-      const randomElement = elements[Math.floor(Math.random() * elements.length)]; // Выбираем случайного героя из выбранной категории
-
-      return randomElement;
-    },
-    resultTitle() {
-      return this.randomResult.title;
-    },
-    resultDesc() {
-      return this.randomResult.desc;
-    },
-    heroTitle() {
-      return this.randomHero.title;
-    },
-    heroSubtitle() {
-      return this.randomHero.subtitle;
-    },
-    heroDesc() {
-      return this.randomHero.desc;
-    },
-  },
-  methods: {
-    handleRollButtonClick() {
-      this.counter = Math.floor(Math.random() * 2) + 1; // Пример изменения значения counter (может быть иным в вашем коде)
-    },
-    handleRollHeroButtonClick() {
-      this.heroCounter = Math.floor(Math.random() * 2) + 1; // Пример изменения значения heroCounter (может быть иным в вашем коде)
-    },
-  },
-};
-
-*/

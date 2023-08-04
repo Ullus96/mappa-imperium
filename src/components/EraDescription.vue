@@ -19,6 +19,7 @@
 						.info.extraBtns"
 					:key="index"
 					:is="item.component"
+					@click="roll(item.data.stage, item.data.amount)"
 					>{{ item.text }}</component
 				>
 			</div>
@@ -31,9 +32,18 @@ import TheButton from './TheButton.vue';
 import results from '@/js/results_en';
 export default {
 	components: { TheButton },
-	setup() {
+	emits: ['roll'],
+	setup(props, context) {
 		const result = results;
-		return { result };
+
+		function roll(stage, amount) {
+			context.emit('roll', {
+				stage,
+				amount,
+				clearRolls: true,
+			});
+		}
+		return { result, roll };
 	},
 };
 </script>

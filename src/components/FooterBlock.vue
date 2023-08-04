@@ -50,6 +50,14 @@
 					>
 					by <a href="https://civitai.com/user/Zovya" target="_blank">Zovya</a>
 				</p>
+				<p>
+					Additional images:
+					<a
+						href="https://www.vecteezy.com/free-vector/flag-texture"
+						target="_blank"
+						>Flag Texture Vectors by Vecteezy</a
+					>
+				</p>
 			</div>
 		</div>
 	</footer>

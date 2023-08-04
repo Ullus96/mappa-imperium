@@ -17,7 +17,7 @@
 	</div>
 
 	<div class="era__content container" v-else>
-		<era-description></era-description>
+		<era-description @roll="roll"></era-description>
 
 		<turn-counter
 			v-if="
@@ -30,9 +30,10 @@
 			<template v-if="$store.state.counters.currentStage > 0">
 				<main-rolls
 					@roll="roll"
+					@generate="generate"
 					@turnButtonClicked="turnButtonClicked"
 				></main-rolls>
-				<more-rolls></more-rolls>
+				<more-rolls @roll="roll" @generate="generate"></more-rolls>
 			</template>
 
 			<template v-else>
@@ -64,7 +65,16 @@
 			:key="`${index}-${Date.now()}`"
 			:data="item"
 			@roll="roll"
+			@generate="generate"
 		></the-result>
+	</div>
+
+	<div class="progress-bar__container" v-if="$store.state.isRolling">
+		<div class="progress-bar__bar-container">
+			&nbsp;
+			<div class="progress-bar__bar-background"></div>
+			<div class="progress-bar__bar">&nbsp;</div>
+		</div>
 	</div>
 </template>
 
@@ -78,6 +88,8 @@ import TheResult from '@/components/TheResult.vue';
 import ModalWindow from '@/components/ModalWindow.vue';
 import DiceRandomShifting from '@/components/DiceRandomShifting.vue';
 import results from '@/js/results_en';
+import deityData from '@/js/deity-data_en';
+import factionData from '@/js/faction-data_en';
 import { useStore } from 'vuex';
 import { ref, reactive } from 'vue';
 export default {
@@ -169,8 +181,102 @@ export default {
 			// return 3;
 		}
 
+		function generate(name) {
+			store.commit('toggleRolling');
+
+			if (
+				typeof name == 'object' &&
+				(name.name == 'deity' || name.name == 'faction')
+			) {
+				if (name.clearRolls) {
+					rolledResults.splice(0, rolledResults.length);
+				}
+				name = name.name;
+			} else {
+				rolledResults.splice(0, rolledResults.length);
+			}
+
+			if (name === 'deity') {
+				let title, subtitle, gender, sacredSite;
+				let nameChunks = [];
+
+				let domain =
+					deityData.domain[Math.floor(Math.random() * deityData.domain.length)];
+				title = domain.name;
+				subtitle = domain.example;
+
+				gender =
+					deityData.gender[Math.floor(Math.random() * deityData.gender.length)];
+
+				for (let i = Math.floor(Math.random() * 3 + 1); i >= 0; i--) {
+					nameChunks.push(
+						deityData.name[Math.floor(Math.random() * deityData.name.length)]
+					);
+				}
+				nameChunks = nameChunks.join(', ');
+
+				sacredSite =
+					deityData.sacredSite[
+						Math.floor(Math.random() * deityData.sacredSite.length)
+					];
+
+				let packedResults = {
+					gender,
+					title,
+					subtitle,
+					nameChunks,
+					sacredSite,
+				};
+
+				setTimeout(() => {
+					rolledResults.push(packedResults);
+				}, 3000);
+			}
+
+			if (name === 'faction') {
+				console.log(factionData);
+				let symbol, naming;
+				let colorPrimary = {};
+				let colorSecondary = {};
+
+				symbol =
+					factionData.symbol[
+						Math.floor(Math.random() * factionData.symbol.length)
+					];
+
+				naming =
+					factionData.naming[
+						Math.floor(Math.random() * factionData.naming.length)
+					];
+
+				colorPrimary =
+					factionData.color[
+						Math.floor(Math.random() * factionData.color.length)
+					];
+
+				colorSecondary =
+					factionData.color[
+						Math.floor(Math.random() * factionData.color.length)
+					];
+
+				let packedResults = {
+					symbol,
+					naming,
+					colorPrimary,
+					colorSecondary,
+				};
+
+				setTimeout(() => {
+					rolledResults.push(packedResults);
+				}, 3000);
+			}
+
+			setTimeout(() => {
+				store.commit('toggleRolling');
+			}, 3000);
+		}
+
 		function turnButtonClicked() {
-			console.log('turnButtonClicked on parent');
 			rolledResults.splice(0, rolledResults.length);
 		}
 
@@ -185,6 +291,7 @@ export default {
 			continueGame,
 			rolledResults,
 			turnButtonClicked,
+			generate,
 		};
 	},
 };

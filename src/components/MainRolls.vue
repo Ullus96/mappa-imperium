@@ -76,7 +76,7 @@ import TheButton from '@/components/TheButton.vue';
 import { useStore } from 'vuex';
 import { ref, computed, watch, onMounted } from 'vue';
 export default {
-	emits: ['roll', 'turnButtonClicked'],
+	emits: ['roll', 'generate', 'turnButtonClicked'],
 	components: { TheButton },
 	setup(props, context) {
 		const store = useStore();
@@ -190,11 +190,17 @@ export default {
 			return 1;
 		}
 		function roll() {
-			context.emit('roll', {
-				stage: +store.state.counters.currentStage,
-				amount: getDicesAmount(+store.state.counters.currentStage),
-				clearRolls: true,
-			});
+			if (+store.state.counters.currentStage === 5) {
+				context.emit('generate', { name: 'deity', clearRolls: true });
+			} else if (+store.state.counters.currentStage === 7) {
+				context.emit('generate', { name: 'faction', clearRolls: true });
+			} else {
+				context.emit('roll', {
+					stage: +store.state.counters.currentStage,
+					amount: getDicesAmount(+store.state.counters.currentStage),
+					clearRolls: true,
+				});
+			}
 		}
 
 		function turnButtonClicked() {

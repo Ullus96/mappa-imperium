@@ -93,16 +93,24 @@
 		transform-origin: top;
 		transition: 0.5s all ease-out;
 
-		& .action__btn {
-			padding: 0.6rem 1.2rem;
-			font-size: 1.4rem;
-		}
-
 		&.hide {
 			visibility: hidden;
 			height: 0;
 			opacity: 0;
 			transform: rotateX(-90deg);
+		}
+
+		&--row {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 1rem;
+			height: auto;
+
+			& .action__btn {
+				padding: 0.6rem 1.2rem;
+				font-size: 1.4rem;
+			}
 		}
 	}
 }
