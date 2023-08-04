@@ -69,7 +69,10 @@
 		></the-result>
 	</div>
 
-	<div class="progress-bar__container" v-if="$store.state.isRolling">
+	<div
+		class="progress-bar__container"
+		v-if="$store.state.isRolling && $store.state.isRollClickedBelowInnerHeight"
+	>
 		<div class="progress-bar__bar-container">
 			&nbsp;
 			<div class="progress-bar__bar-background"></div>

@@ -14,7 +14,7 @@
 				<p class="turn__total">{{ $store.state.gameSettings.playersTotal }}</p>
 			</div>
 		</div>
-		<div class="turn__item">
+		<div class="turn__item" v-if="false">
 			<p class="turn__title">Debug</p>
 			<div class="turn__counters">
 				<p class="turn__current">{{ $store.state.counters.currentStage }}</p>

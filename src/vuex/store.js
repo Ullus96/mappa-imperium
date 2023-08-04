@@ -7,6 +7,7 @@ export default createStore({
 			isMoreRollsVisible: false,
 			isInTransition: false,
 			isRolling: false,
+			isRollClickedBelowInnerHeight: false,
 			counters: {
 				turnCurrent: 1,
 				turnsTotal: 1,
@@ -59,8 +60,8 @@ export default createStore({
 			localStorage.setItem('turnCurrent', state.counters.turnCurrent);
 			localStorage.setItem(payload.name, state.counters[payload.name]);
 		},
-		setTurnsTotal(state) {
-			console.log(state);
+		setSsRollClickedBelowInnerHeight(state, boolean) {
+			state.isRollClickedBelowInnerHeight = boolean;
 		},
 	},
 });

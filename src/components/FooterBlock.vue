@@ -51,11 +51,16 @@
 					by <a href="https://civitai.com/user/Zovya" target="_blank">Zovya</a>
 				</p>
 				<p>
-					Additional images:
+					Additional images used:
 					<a
 						href="https://www.vecteezy.com/free-vector/flag-texture"
 						target="_blank"
 						>Flag Texture Vectors by Vecteezy</a
+					>,
+					<a
+						href="https://www.vecteezy.com/free-vector/nautical-compass"
+						target="_blank"
+						>Nautical Compass Vectors by Vecteezy</a
 					>
 				</p>
 			</div>

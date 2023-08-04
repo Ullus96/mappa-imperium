@@ -3,7 +3,7 @@
 		display: grid;
 		gap: 4rem;
 		padding: 0 10rem 10rem;
-		animation: fadeIn 0.5s ease-out;
+		// animation: fadeIn 0.5s ease-out;
 
 		&:nth-child(odd) {
 			grid-template-columns: 40% 60%;
@@ -100,7 +100,7 @@
 		aspect-ratio: 1/1;
 
 		&--texture {
-			background: url(@/assets/silk5.jpg);
+			background: url(@/assets/flag-texture.jpg);
 			mix-blend-mode: multiply;
 			background-size: cover;
 			z-index: 4;

@@ -68,6 +68,10 @@
 			store.state.gameSettings.era6 =
 			{{ $store.state.gameSettings.era6 }}
 		</p>
+		<p>
+			store.state.isRollClickedBelowInnerHeight =
+			{{ $store.state.isRollClickedBelowInnerHeight }}
+		</p>
 	</div>
 </template>
 

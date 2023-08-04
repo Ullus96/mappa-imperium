@@ -2,6 +2,10 @@
 	background-color: $color-text;
 	color: $color-primary;
 
+	&__container {
+		padding: 10rem 10rem 6rem;
+	}
+
 	& a {
 		position: relative;
 		display: inline;
@@ -90,5 +94,8 @@
 
 	&__extra-info {
 		opacity: 0.6;
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
 	}
 }

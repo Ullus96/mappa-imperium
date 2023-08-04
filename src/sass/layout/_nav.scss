@@ -9,10 +9,23 @@
 		gap: 1rem;
 		flex-direction: row;
 		justify-content: space-between;
+		align-items: center;
 	}
 
 	&__item {
 		padding: 1.2rem 0.9rem;
 		cursor: pointer;
+	}
+
+	&__logo {
+		height: 5.5rem;
+		margin-right: 12rem;
+	}
+
+	&__list--center {
+		display: flex;
+		flex-grow: 1;
+		justify-content: space-between;
+		gap: 3rem;
 	}
 }

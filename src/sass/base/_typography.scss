@@ -55,9 +55,19 @@ h6 {
 	color: $color-accent-2;
 }
 
-.router-link-active,
-.router-link-exact-active {
-	text-transform: uppercase;
+.router-link-active .nav__item,
+.router-link-exact-active .nav__item {
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 4px;
+		height: 1px;
+		background-color: $color-text;
+	}
 }
 
 .rotate-45 {

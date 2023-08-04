@@ -170,9 +170,19 @@ h6 {
   color: #6f4518;
 }
 
-.router-link-active,
-.router-link-exact-active {
-  text-transform: uppercase;
+.router-link-active .nav__item,
+.router-link-exact-active .nav__item {
+  position: relative;
+}
+.router-link-active .nav__item::after,
+.router-link-exact-active .nav__item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 4px;
+  height: 1px;
+  background-color: #000;
 }
 
 .rotate-45 {
@@ -247,10 +257,21 @@ h6 {
   gap: 1rem;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 .nav__item {
   padding: 1.2rem 0.9rem;
   cursor: pointer;
+}
+.nav__logo {
+  height: 5.5rem;
+  margin-right: 12rem;
+}
+.nav__list--center {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  gap: 3rem;
 }
 
 .header {
@@ -272,6 +293,7 @@ h6 {
 }
 .header__background {
   position: absolute;
+  width: 50%;
   left: 50%;
   bottom: 6%;
   transform: translateX(-50%);
@@ -368,6 +390,9 @@ h6 {
   background-color: #000;
   color: #ffedd8;
 }
+.footer__container {
+  padding: 10rem 10rem 6rem;
+}
 .footer a {
   position: relative;
   display: inline;
@@ -447,6 +472,9 @@ h6 {
 }
 .footer__extra-info {
   opacity: 0.6;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
 .era__title {
@@ -524,7 +552,6 @@ h6 {
   display: grid;
   gap: 4rem;
   padding: 0 10rem 10rem;
-  animation: fadeIn 0.5s ease-out;
 }
 .result__content:nth-child(odd) {
   grid-template-columns: 40% 60%;
@@ -603,7 +630,7 @@ h6 {
   aspect-ratio: 1/1;
 }
 .result__faction-flag--texture {
-  background: url(@/assets/silk5.jpg);
+  background: url(@/assets/flag-texture.jpg);
   mix-blend-mode: multiply;
   background-size: cover;
   z-index: 4;
