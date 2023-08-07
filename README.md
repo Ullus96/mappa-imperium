@@ -1,24 +1,31 @@
-# mappa-imperium
+# Mappa Imperium
 
-## Project setup
-```
-npm install
-```
+### Worldbuilding Game
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+The singleplayer web-version of a tabletop worldbuilding game [Mappa Imperium](https://nookrium.itch.io/mappa-imperium) by Nookrium.  
+Try it [here](https://mappa-imperium.web.app/play).
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Main features
 
-### Lints and fixes files
-```
-npm run lint
-```
+- Set up game duration and players amount
+- Save game progress
+- Roll Dices (with pictures in the results)
+- Count turns
+- Diety and Faction generators
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## How to play
+
+First of all, it is recommended to have a rulebook, that can be downloaded from [itch.io (Mappa Imperium)](https://nookrium.itch.io/mappa-imperium).
+Then, open [website](https://mappa-imperium.web.app/play) on a "Play" page.
+Start a new game, then set up a game duration and the players amount.
+After that, you can Roll Dices, switch turns between players, and also use all available rolls under the "Show More Rolls" button.
+Follow the instructions until the end of the game.
+
+![Roll Example](./src/assets/readme_img.jpg)
+
+## Technologies Used
+
+- HTML
+- SCSS
+- Vue
+- JS
