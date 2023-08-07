@@ -29,6 +29,7 @@
 			<the-button @click="roll(13, 3)">Era V: Age of Empires</the-button>
 			<the-button @click="roll(15, 3)">Era VI: Age of Collapse</the-button>
 			<the-button @click="roll(17, 2)">Omen</the-button>
+			<the-button @click="roll(20, 1)">War</the-button>
 		</div>
 	</div>
 </template>

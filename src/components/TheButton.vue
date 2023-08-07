@@ -25,7 +25,7 @@ export default {
 		const store = useStore();
 		function setYCoordinate(event) {
 			const yCoordinate = event.pageY;
-			if (yCoordinate > window.innerHeight) {
+			if (yCoordinate > window.innerHeight * 1.4) {
 				store.commit('setSsRollClickedBelowInnerHeight', true);
 			} else {
 				store.commit('setSsRollClickedBelowInnerHeight', false);
