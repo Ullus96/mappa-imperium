@@ -15,10 +15,10 @@ Try it [here](https://mappa-imperium.web.app/play).
 
 ## How to play
 
-First of all, it is recommended to have a rulebook, that can be downloaded from [itch.io (Mappa Imperium)](https://nookrium.itch.io/mappa-imperium).
-Then, open [website](https://mappa-imperium.web.app/play) on a "Play" page.
-Start a new game, then set up a game duration and the players amount.
-After that, you can Roll Dices, switch turns between players, and also use all available rolls under the "Show More Rolls" button.
+First of all, it is recommended to have a rulebook, that can be downloaded from [itch.io (Mappa Imperium)](https://nookrium.itch.io/mappa-imperium).  
+Then, open [website](https://mappa-imperium.web.app/play) on a "Play" page.  
+Start a new game, then set up a game duration and the players amount.  
+After that, you can Roll Dices, switch turns between players, and also use all available rolls under the "Show More Rolls" button.  
 Follow the instructions until the end of the game.
 
 ![Roll Example](./src/assets/readme_img.jpg)
